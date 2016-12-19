@@ -2,7 +2,7 @@
 
 commit_message=$1
 branch=$(echo "$1" | head -1)
-branch=${branch// /-}
+branch=$(echo "$branch" | sed -e "s/[^[:alnum:]]\+/-/g")
 
 git checkout -b $branch
 git commit --allow-empty -m "$commit_message"
