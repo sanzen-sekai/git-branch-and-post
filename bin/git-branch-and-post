@@ -1,0 +1,20 @@
+#!/bin/bash
+
+title="$@"
+branch=${title// /-}
+
+description=""
+echo "description: (EOF : Ctrl-D)"
+while [[ -z "$eof" ]]; do
+  read -p "" line || eof=true
+  if [[ -z "$eof" ]]; then
+    description="$description$line
+"
+  fi
+done
+
+git checkout -b $branch
+git commit --allow-empty -m "$title
+
+$description"
+git pub && git post
