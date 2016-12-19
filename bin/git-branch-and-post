@@ -1,20 +1,9 @@
 #!/bin/bash
 
-title="$@"
-branch=${title// /-}
-
-description=""
-echo "description: (EOF : Ctrl-D)"
-while [[ -z "$eof" ]]; do
-  read -p "" line || eof=true
-  if [[ -z "$eof" ]]; then
-    description="$description$line
-"
-  fi
-done
+commit_message=$1
+branch=$(echo "$1" | head -1)
+branch=${branch// /-}
 
 git checkout -b $branch
-git commit --allow-empty -m "$title
-
-$description"
+git commit --allow-empty -m "$commit_message"
 git pub && git post
