@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $# -lt 1 ]; then
+  echo "usage: git branch-and-post <commit message>"
+  exit 1
+fi
+
 commit_message=$1
 branch=$(echo "$1" | head -1)
 branch=$(echo "$branch" | sed -e "s/[^[:alnum:]]\+/-/g")
