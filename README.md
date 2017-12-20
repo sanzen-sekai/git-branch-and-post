@@ -1,3 +1,7 @@
+# Deprecated
+
+this project is moved to `git-post`
+
 # git-branch-and-post
 
 checkout new branch, and git-post
