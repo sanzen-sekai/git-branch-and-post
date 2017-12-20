@@ -1,6 +1,6 @@
 # Deprecated
 
-this project is moved to `git-post`
+this project moved to `git-post`
 
 # git-branch-and-post
 
